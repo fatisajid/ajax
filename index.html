@@ -1,95 +1,31 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script>
-        console.log('hello');
-        const root = document.querySelector('#root');
-        /*
-                try {
-                    fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(
-                        (response) => {
-                            response.json().then((data) => {
-                                root.innerHTML = `<p>${data.name}</p>`;
-                                fetch(
-                                    'https://pokeapi.co/api/v2/pokemon/charmander'
-                                ).then((response2) => {
-                                    response2.json().then((data2) => {
-                                        root.innerHTML += `<p>${data2.name}</p>`;
-                                    });
-                                });
-                            });
-                        }
-                    );
-                } catch (error) {
-                    console.log('error', error);
-                }
-        */
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>recherche de films</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Recherche de Films</h1>
+        <div id="searchSection">
+            <input type="text" id="movieInput" placeholder="Entrez le nom du film...">
+            <button id="searchButton">Rechercher</button>
+        </div>
 
-        const getPokemonName = async (name) => {
-            try {
-                const response = await fetch(
-                    `https://api.gameofthronesquotes.xyz/v1/random/` 
-                    // `https://api.breakingbadquotes.xyz/v1/quotes/`
-                );
-                const data = await response.json();
-                console.log(data);
-                return data.name;
-            } catch (error) {}
-        };
+        <div id="movieList"></div>
 
-        const getData = async () => {
-            try {
-                root.innerHTML += `<p>${await getPokemonName('ditto')}</p>`;
-                root.innerHTML += `<p>${await getPokemonName(
-                    'charmander'
-                )}</p>`;
-            } catch (error) {
-                console.log(error);
-            }
-        };
+        <div class="pagination">
+            <button id="prevPageButton" disabled>Page précédente</button>
+            <button id="nextPageButton">Page suivante</button>
+        </div>
 
-        // getData();
+        <div id="movieDetails"></div>
+    </div>
 
-        const getOtherQuotesOfACharacter = (event, characterSlug) => {
-            console.log(event);
-
-            console.log(characterSlug);
-        };
-
-        const getCharactersOfAHouse = (event, houseSlug) => {
-            console.log(event);
-
-            console.log(houseSlug);
-            
-        };
-
-        
-        const getDataOfGOT = async () => {
-            const response = await fetch(
-                'https://api.gameofthronesquotes.xyz/v1/random'
-            );
-
-            const data = await response.json();
-            console.log(data);
-            const myNewDiv = document.createElement('div');
-            myNewDiv.innerHTML = `<div>
-                                    <p>${data.sentence}</p>
-                                    <h2 onclick=getOtherQuotesOfACharacter(event,'${data.character.slug}')>${data.character.name}</h2>
-                                    <h3 onclick=getCharactersOfAHouse(event,'${data.character.house.slug}')>${data.character.house.name}</h3>
-                                <div>`;
-
-            root.appendChild(myNewDiv);
-        };
-
-        getDataOfGOT();
-    </script>
+    <script src="app.js"></script>
+</body>
+</html>
+</body>
 </html>
