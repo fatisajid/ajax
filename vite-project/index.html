@@ -7,7 +7,23 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="container">
+      <h1>Recherche de Films</h1>
+      <div id="searchSection">
+          <input type="text" id="movieInput" placeholder="Entrez le nom du film...">
+          <button id="searchButton">Rechercher</button>
+      </div>
+
+      <div id="movieList"></div>
+
+      <div class="pagination">
+          <button id="prevPageButton" disabled>Page précédente</button>
+          <button id="nextPageButton">Page suivante</button>
+      </div>
+
+      <div id="movieDetails"></div>
+  </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
